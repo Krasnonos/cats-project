@@ -6,3 +6,7 @@ export * from './NavLinksList/NavLinksList';
 export * from './SearchBreedsInput/SearchBreedsInput';
 export * from './NavFavoriteCats/NavFavoriteCats';
 export * from './MainContentNav/MainContentNav';
+export * from './RandomCatForVote/RandomCatForVote';
+export * from './ActionHistoryList/ActionHistoryList';
+export * from './ActionHistoryListItem/ActionHistoryListItem';
+export * from './VoteBtns/VoteBtns';

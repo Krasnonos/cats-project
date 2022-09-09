@@ -1,5 +1,4 @@
 import { format } from 'date-fns';
-import React, { Component } from 'react';
 import svg from '../../image/icons.svg';
 import {
   ListItem,
@@ -9,8 +8,10 @@ import {
   ActionSvg,
 } from './ActionHistoryListItem.styled';
 
-export class ActionHistoryListItem extends Component {
-  choseVote = vote => {
+export const ActionHistoryListItem = ({ remove, action }) => {
+  const { id, time, vote } = action;
+
+  const choseVote = vote => {
     if (vote === 1) {
       return 'Likes';
     }
@@ -20,7 +21,7 @@ export class ActionHistoryListItem extends Component {
       return 'Favorites';
     }
   };
-  choseIcon = vote => {
+  const choseIcon = vote => {
     if (vote === 1) {
       return `${svg}#icon-likeGreen`;
     }
@@ -31,26 +32,19 @@ export class ActionHistoryListItem extends Component {
     }
   };
 
-  render() {
-    const {
-      action: { id, time, vote },
-      remove,
-    } = this.props;
-
-    return (
-      <ListItem>
-        <Time>{format(time, 'HH:mm')}</Time>
-        <Text>
-          Image ID: <ActionId>{id}</ActionId>{' '}
-          {remove ? 'was removed from ' : 'was added to '}
-          {this.choseVote(vote)}
-        </Text>
-        {!remove && (
-          <ActionSvg width="20" height="20">
-            <use href={this.choseIcon(vote)}></use>
-          </ActionSvg>
-        )}
-      </ListItem>
-    );
-  }
-}
+  return (
+    <ListItem>
+      <Time>{format(time, 'HH:mm')}</Time>
+      <Text>
+        Image ID: <ActionId>{id}</ActionId>
+        {remove ? ' was removed from ' : ' was added to '}
+        {choseVote(vote)}
+      </Text>
+      {!remove && (
+        <ActionSvg width="20" height="20">
+          <use href={choseIcon(vote)}></use>
+        </ActionSvg>
+      )}
+    </ListItem>
+  );
+};

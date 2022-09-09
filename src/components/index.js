@@ -10,3 +10,4 @@ export * from './RandomCatForVote/RandomCatForVote';
 export * from './ActionHistoryList/ActionHistoryList';
 export * from './ActionHistoryListItem/ActionHistoryListItem';
 export * from './VoteBtns/VoteBtns';
+export * from './Loader/Loader';

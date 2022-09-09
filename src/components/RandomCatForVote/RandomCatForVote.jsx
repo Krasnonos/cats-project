@@ -1,35 +1,37 @@
-import React, { Component } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 import { VoteBtns } from '../VoteBtns/VoteBtns';
-// import { Loader } from '../Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import { ActionHistoryList } from '../ActionHistoryList/ActionHistoryList';
 import { ImgWrap, VoteCatImg, RelativeWrap } from './RandomCatForVote.styled';
 import { Api } from '../../utils/apiService';
 
 const API = new Api();
 
-export class RandomCatForVote extends Component {
-  state = {
-    randomCat: '',
-    actions: [],
-    loading: false,
-  };
+export const RandomCatForVote = () => {
+  const [actions, setActions] = useState([]);
 
-  async componentDidMount() {
+  const {
+    data: randomCat,
+    isLoading,
+    refetch,
+  } = useQuery(['randomCat'], API.getRandomCat, {
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
+  const voteForCat = async (id, vote) => {
+    setActions(state => [
+      ...state,
+      {
+        id,
+        vote,
+        time: Date.now(),
+      },
+    ]);
+
     try {
-      this.setState({ loading: true });
-      const randomCat = await API.getRandomCat();
-      this.setState({ randomCat: randomCat[0] });
-    } catch (error) {
-      console.log(error);
-    }
-    this.setState({ loading: false });
-  }
-
-  voteForCat = async (id, vote) => {
-    try {
-      const randomCat = await API.getRandomCat();
-      this.setState({ randomCat: randomCat[0] });
-
+      refetch('randomCat');
       if (vote === 1 || vote === 0) {
         await API.voting({ image_id: id, value: vote });
       } else {
@@ -38,38 +40,26 @@ export class RandomCatForVote extends Component {
     } catch (error) {
       console.log(error);
     }
-    this.addActions(id, vote);
   };
 
-  addActions = (id, vote) => {
-    this.setState(prevState => {
-      return {
-        actions: [
-          ...prevState.actions,
-          {
-            id,
-            vote,
-            time: Date.now(),
-          },
-        ],
-      };
-    });
-  };
-
-  render() {
-    const { randomCat, actions, loading } = this.state;
-
-    return (
-      <>
-        <RelativeWrap>
-          {/* {loading && <Loader />} */}
-          <ImgWrap>
-            <VoteCatImg src={randomCat.url} alt={'cat' + randomCat.id} />
-          </ImgWrap>
-          <VoteBtns onVote={this.voteForCat} id={randomCat.id} />
-        </RelativeWrap>
-        {actions && <ActionHistoryList actions={actions} />}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <RelativeWrap>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <ImgWrap>
+              <VoteCatImg
+                src={randomCat[0].url}
+                alt={'cat' + randomCat[0].id}
+              />
+            </ImgWrap>
+            <VoteBtns onVote={voteForCat} id={randomCat[0].id} />
+          </>
+        )}
+      </RelativeWrap>
+      {actions && <ActionHistoryList actions={actions} />}
+    </>
+  );
+};

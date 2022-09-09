@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -10,6 +10,7 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   background-color: ${p => p.theme.colors.mainBg};
+  overflow: hidden;
 `;
 
 export const LeftBar = styled.aside`

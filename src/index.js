@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
-import './toggleDayNight.css';
 import App from './components/App';
 import { store, persistor } from './redux/store';
 

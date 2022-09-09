@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
+import { NavButton } from '../../components/NavButton/NavButton';
+import { DayNightCheckbox } from '../../components/DayNightCheckbox/DayNightCheckbox';
 
 import svg from '../../image/icons.svg';
 import voting from '../../image/voting.png';
 import breeds from '../../image/breeds.png';
 import gallery from '../../image/gallery.png';
-import { changeTheme } from '../../redux/themeSlice';
 
 import {
   Container,
@@ -19,12 +19,8 @@ import {
   PagesList,
   LeftBar,
 } from './SharedLayoutPage.styled';
-import { NavButton } from '../../components/NavButton/NavButton';
 
 export const SharedLayoutPage = () => {
-  const isDarkTheme = useSelector(store => store.theme.isNightTheme);
-  const dispatch = useDispatch();
-
   return (
     <Container>
       <LeftBar>
@@ -37,16 +33,7 @@ export const SharedLayoutPage = () => {
               <use href={svg + '#icon-PetsPaw'}></use>
             </LogoText>{' '}
           </LogoBtn>
-          <input
-            checked={isDarkTheme}
-            onChange={() => dispatch(changeTheme())}
-            type="checkbox"
-            id="toggle"
-            className="toggle--checkbox"
-          />
-          <label htmlFor="toggle" className="toggle--label">
-            <span className="toggle--label-background"></span>
-          </label>
+          <DayNightCheckbox />
         </Header>
         <div>
           <TitleWrap>

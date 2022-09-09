@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Background = styled.div`
   position: relative;
-  margin-left: auto;
   width: 680px;
   height: 840px;
   overflow: visible;

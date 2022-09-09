@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -21,14 +20,6 @@ export const LeftBar = styled.aside`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-export const LogoBtn = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: ${p => p.theme.borders.none};
 `;
 
 export const TitleWrap = styled.div`
@@ -56,13 +47,4 @@ export const HeroStart = styled.p`
   font-size: ${p => p.theme.fontSizes.m};
   line-height: 1.45;
   color: ${p => p.theme.colors.boldText};
-`;
-
-export const PagesList = styled.ul`
-  display: flex;
-  margin-top: 20px;
-`;
-
-export const LogoText = styled.svg`
-  fill: ${p => p.theme.colors.boldText};
 `;

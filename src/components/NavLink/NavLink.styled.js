@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 export const ListItem = styled.li`
   & + & {
@@ -7,7 +7,7 @@ export const ListItem = styled.li`
   }
 `;
 
-export const BtnWithImg = styled(NavLink)`
+export const ImgLink = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,11 +18,11 @@ export const BtnWithImg = styled(NavLink)`
   border-radius: ${p => p.theme.radii.round};
 `;
 
-export const ChooseBtn = styled(NavLink)`
-display: flex;
-justify-content: center;
-align-items: center;
- width: 139px;
+export const Link = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 139px;
   height: 36px;
   margin-top: 10px;
   border-radius: ${p => p.theme.radii.normal};
@@ -33,7 +33,7 @@ align-items: center;
   text-transform: uppercase;
   text-decoration: none;
   color: ${p => p.theme.colors.mainTextBtn};
-   background-color: ${p => p.theme.colors.mainBgBtn};
+  background-color: ${p => p.theme.colors.mainBgBtn};
 
   :active {
     background-color: ${p => p.theme.colors.activeBgBtn};
@@ -45,6 +45,3 @@ align-items: center;
     background-color: ${p => p.theme.colors.hoverBgBtn};
   }
 `;
-
-
- 

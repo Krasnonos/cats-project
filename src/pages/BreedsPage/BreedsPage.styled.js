@@ -10,6 +10,10 @@ export const HeadWrap = styled.div`
   margin-bottom: 10px;
 `;
 
+export const FlexWrap = styled.div`
+  display: flex;
+`;
+
 export const Wrap = styled.div`
   width: 100%;
   height: 770px;

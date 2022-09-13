@@ -21,13 +21,13 @@ export const Link = styled(NavLink)`
     margin-left: 10px;
   }
 
-  :hover,
-  :focus {
+  :hover:not(.active),
+  :focus-visible:not(.active) {
     color: ${p => p.theme.colors.hoverTextBtn};
     background-color: ${p => p.theme.colors.hoverBgBtn};
   }
 
-  :active {
+  &.active {
     color: ${p => p.theme.colors.activeTextBtn};
     background-color: ${p => p.theme.colors.activeBgBtn};
   }

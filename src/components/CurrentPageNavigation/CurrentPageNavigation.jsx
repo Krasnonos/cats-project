@@ -7,9 +7,9 @@ import {
   BreedId,
   UploadBtn,
   UploadSvg,
-} from './MainContentNav.styled';
+} from './CurrentPageNavigation.styled';
 
-export const MainContentNav = ({ id, isUpload, openModal }) => {
+export const CurrentPageNavigation = ({ id, isUpload, openModal }) => {
   const location = useLocation();
   const { catId } = useParams();
   const currentPage = location.pathname.slice(1);

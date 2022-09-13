@@ -1,5 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
-import { Api } from '../../utils/apiService';
+import { useGetBreedsList } from '../../hooks/useGetBreedsList';
 import {
   MainList,
   BreedsItem,
@@ -9,13 +8,9 @@ import {
   SortBtn,
 } from './BreedsForm.styled';
 import svg from '../../image/icons.svg';
-const API = new Api();
 
-export const BreedsForm = ({ changeForm }) => {
-  const { data: breeds } = useQuery(['randomCat'], API.getBreeds, {
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
+export const BreedsForm = ({ changeForm, setSort }) => {
+  const breeds = useGetBreedsList();
 
   const getBreedsHtml = (id, name) => {
     return (
@@ -95,12 +90,12 @@ export const BreedsForm = ({ changeForm }) => {
           </li>
         </SubMenu>
       </LimitItem>
-      <SortBtn type="button" onClick={changeForm} name="sort" value="0">
+      <SortBtn type="button" onClick={() => setSort(0)}>
         <svg height="21">
           <use href={svg + '#icon-sort'}></use>
         </svg>
       </SortBtn>
-      <SortBtn type="button" onClick={changeForm} name="sort" value="1">
+      <SortBtn type="button" onClick={() => setSort(1)}>
         <svg height="21">
           <use href={svg + '#icon-sortReverse'}></use>
         </svg>

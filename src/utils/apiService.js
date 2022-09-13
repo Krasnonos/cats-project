@@ -24,9 +24,9 @@ export class Api {
     return result.data;
   }
 
-  async getCatsByBreedsFilter(limit, id, page) {
+  async getCatsByBreedsFilter(limit, breedId) {
     const result = await axios(
-      `/v1/images/search?breed_id=${id}&limit=${limit}&page=${page}&api_key=${API_KEY}`
+      `/v1/images/search?breed_id=${breedId}&limit=${limit}&page='1'&api_key=${API_KEY}`
     );
     return result.data;
   }

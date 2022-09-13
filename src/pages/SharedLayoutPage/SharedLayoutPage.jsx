@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { DayNightCheckbox, NavLinksList, Logo } from '../../components';
+import { DayNightCheckbox, MainNavLinksList, Logo } from '../../components';
 
 import {
   Container,
@@ -25,7 +25,7 @@ export const SharedLayoutPage = () => {
             <HeroWelcome>Welcome to cat house</HeroWelcome>
           </TitleWrap>
           <HeroStart>Try to use our application</HeroStart>
-          <NavLinksList />
+          <MainNavLinksList />
         </div>
       </LeftBar>
       <Outlet />

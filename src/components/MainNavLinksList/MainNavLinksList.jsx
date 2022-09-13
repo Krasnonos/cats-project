@@ -1,26 +1,26 @@
-import { NavButton } from '../NavLink/NavLink';
-import { PagesList } from './NavLinksList.styled';
+import { MainNavLink } from '../MainNavLink/MainNavLink';
+import { PagesList } from './MainNavLinksList.styled';
 
 import voting from '../../image/voting.png';
 import breeds from '../../image/breeds.png';
 import gallery from '../../image/gallery.png';
 
-export const NavLinksList = () => {
+export const MainNavLinksList = () => {
   return (
     <PagesList>
-      <NavButton
+      <MainNavLink
         img={voting}
         color={'#B4B7FF'}
         text={'voting'}
         path={'voting'}
       />
-      <NavButton
+      <MainNavLink
         img={breeds}
         color={'#97EAB9'}
         text={'breeds'}
         path={'breeds'}
       />
-      <NavButton
+      <MainNavLink
         img={gallery}
         color={'#FFD280'}
         text={'gallery'}

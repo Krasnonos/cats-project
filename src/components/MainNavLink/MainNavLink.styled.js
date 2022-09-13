@@ -16,6 +16,10 @@ export const ImgLink = styled(NavLink)`
   background-color: ${p => p.bgcolor};
   border: 4px solid rgba(255, 255, 255, 0.6);
   border-radius: ${p => p.theme.radii.round};
+
+  &.active {
+    border: 4px solid ${p => p.theme.colors.hoverBgBtn};
+  }
 `;
 
 export const Link = styled(NavLink)`
@@ -35,13 +39,13 @@ export const Link = styled(NavLink)`
   color: ${p => p.theme.colors.mainTextBtn};
   background-color: ${p => p.theme.colors.mainBgBtn};
 
-  :active {
+  &.active {
     background-color: ${p => p.theme.colors.activeBgBtn};
     color: ${p => p.theme.colors.activeTextBtn};
   }
 
-  :hover,
-  :focus {
+  :hover:not(.active),
+  :focus-visible:not(.active) {
     background-color: ${p => p.theme.colors.hoverBgBtn};
   }
 `;

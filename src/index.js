@@ -8,7 +8,10 @@ import './index.css';
 import App from './components/App';
 import { store, persistor } from './redux/store';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  retry: false,
+  refetchOnWindowFocus: false,
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

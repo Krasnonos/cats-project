@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
 import { VoteBtns } from '../VoteBtns/VoteBtns';
 import { Loader } from '../Loader/Loader';
@@ -15,10 +15,10 @@ export const RandomCatForVote = () => {
     data: randomCat,
     isLoading,
     refetch,
-  } = useQuery(['randomCat'], API.getRandomCat, {
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
+  } = useQuery(['randomCat'], API.getRandomCat);
+
+  const voteMutation = useMutation(API.voting);
+  const addFevoriteMutation = useMutation(API.addCatToFavorite);
 
   const voteForCat = async (id, vote) => {
     setActions(state => [
@@ -33,9 +33,9 @@ export const RandomCatForVote = () => {
     try {
       refetch('randomCat');
       if (vote === 1 || vote === 0) {
-        await API.voting({ image_id: id, value: vote });
+        voteMutation.mutate({ image_id: id, value: vote });
       } else {
-        API.addCatToFavorite({ image_id: id });
+        addFevoriteMutation.mutate({ image_id: id });
       }
     } catch (error) {
       console.log(error);

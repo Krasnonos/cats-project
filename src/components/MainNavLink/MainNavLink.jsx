@@ -1,6 +1,6 @@
-import { ImgLink, Link, ListItem } from './NavLink.styled';
+import { ImgLink, Link, ListItem } from './MainNavLink.styled';
 
-export const NavButton = ({ img, color, text, path }) => {
+export const MainNavLink = ({ img, color, text, path }) => {
   return (
     <ListItem>
       <ImgLink to={path} bgcolor={color}>

@@ -1,7 +1,7 @@
 import {
   SearchBreedsInput,
   NavFavoriteCat,
-  MainContentNav,
+  CurrentPageNavigation,
   RandomCatForVote,
 } from '../../components';
 import { Section, HeadWrap, Wrap } from './VotingPage.styled';
@@ -14,7 +14,7 @@ export const VotingPage = () => {
         <NavFavoriteCat />
       </HeadWrap>
       <Wrap>
-        <MainContentNav />
+        <CurrentPageNavigation />
         <RandomCatForVote />
       </Wrap>
     </Section>

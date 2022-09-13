@@ -12,3 +12,7 @@ export * from './ActionHistoryListItem/ActionHistoryListItem';
 export * from './VoteBtns/VoteBtns';
 export * from './Loader/Loader';
 export * from './BreedsForm/BreedsForm';
+export * from './GridGallery/GridGallery';
+export * from './GridGalleryItem/GridGalleryItem';
+export * from './VotedGalleryItem/VotedGalleryItem';
+export * from './VotedGalleryList/VotedGalleryList';

@@ -6,6 +6,9 @@ import { SharedLayoutPage } from '../pages/SharedLayoutPage/SharedLayoutPage';
 import { VotingPage } from '../pages/VotingPage/VotingPage';
 import { GalleryPage } from '../pages/GalleryPage/GalleryPage';
 import { BreedsPage } from '../pages/BreedsPage/BreedsPage';
+import { FavoritePage } from '../pages/FavoritePage/FavoritePage';
+import { LikesPage } from '../pages/LikesPage/LikesPage';
+import { DislikesPage } from '../pages/DislikesPage/DislikesPage';
 import { HomeHeroBlock } from '../components/HomeHeroBlock/HomeHeroBlock';
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
           <Route path={'voting'} element={<VotingPage />} />
           <Route path={'gallery'} element={<GalleryPage />} />
           <Route path={'breeds'} element={<BreedsPage />} />
+          <Route path={'likes'} element={<LikesPage />} />
+          <Route path={'dislikes'} element={<DislikesPage />} />
+          <Route path={'favorites'} element={<FavoritePage />} />
         </Route>
       </Routes>
     </ThemeProvider>

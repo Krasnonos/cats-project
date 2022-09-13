@@ -4,9 +4,7 @@ import { VoteBtns } from '../VoteBtns/VoteBtns';
 import { Loader } from '../Loader/Loader';
 import { ActionHistoryList } from '../ActionHistoryList/ActionHistoryList';
 import { ImgWrap, VoteCatImg, RelativeWrap } from './RandomCatForVote.styled';
-import { Api } from '../../utils/apiService';
-
-const API = new Api();
+import { API } from '../../utils/apiService';
 
 export const RandomCatForVote = () => {
   const [actions, setActions] = useState([]);
@@ -14,6 +12,7 @@ export const RandomCatForVote = () => {
   const {
     data: randomCat,
     isLoading,
+    isFetching,
     refetch,
   } = useQuery(['randomCat'], API.getRandomCat);
 
@@ -51,11 +50,15 @@ export const RandomCatForVote = () => {
           <>
             <ImgWrap>
               <VoteCatImg
-                src={randomCat[0].url}
-                alt={'cat' + randomCat[0].id}
+                src={randomCat[0]?.url}
+                alt={'cat' + randomCat[0]?.id}
               />
             </ImgWrap>
-            <VoteBtns onVote={voteForCat} id={randomCat[0].id} />
+            <VoteBtns
+              onVote={voteForCat}
+              id={randomCat[0]?.id}
+              isFetching={isFetching}
+            />
           </>
         )}
       </RelativeWrap>

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { Api } from '../../utils/apiService';
+import { API } from '../../utils/apiService';
+// import { getUniqImages } from '../../utils/getUniqImages';
 import { SortImg } from '../../utils/sortImages';
 import {
   SearchBreedsInput,
   NavFavoriteCat,
   CurrentPageNavigation,
   BreedsForm,
+  Gallery,
+  Loader,
 } from '../../components';
 import { Section, HeadWrap, FlexWrap, Wrap } from './BreedsPage.styled';
-
-const API = new Api();
 
 export const BreedsPage = () => {
   const [breedId, setBreedId] = useState(null);
@@ -67,6 +68,8 @@ export const BreedsPage = () => {
           <CurrentPageNavigation />
           <BreedsForm changeForm={changeForm} setSort={setSort} />
         </FlexWrap>
+        {loading && !breedId && <Loader />}
+        {sortedCatImages.length > 0 && <Gallery images={sortedCatImages} />}
       </Wrap>
     </Section>
   );

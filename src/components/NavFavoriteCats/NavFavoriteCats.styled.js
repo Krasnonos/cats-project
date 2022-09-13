@@ -27,16 +27,14 @@ export const Link = styled(NavLink)`
     background-color: ${p => p.theme.colors.hoverBgBtn};
   }
 
-  &.active {
+  &.active,
+  &.active > svg {
     color: ${p => p.theme.colors.activeTextBtn};
     background-color: ${p => p.theme.colors.activeBgBtn};
+    fill: ${p => p.theme.colors.activeTextBtn};
   }
 `;
 
 export const BtnSvg = styled.svg`
   fill: ${p => p.theme.colors.mainTextBtn};
-
-  ${'a'}:active & {
-    fill: ${p => p.theme.colors.activeTextBtn};
-  }
 `;

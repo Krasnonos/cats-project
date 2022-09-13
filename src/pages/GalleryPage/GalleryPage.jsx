@@ -13,7 +13,7 @@ export const GalleryPage = () => {
         <NavFavoriteCat />
       </HeadWrap>
       <Wrap>
-        <CurrentPageNavigation />
+        <CurrentPageNavigation currentPage={'gallery'} />
       </Wrap>
     </Section>
   );

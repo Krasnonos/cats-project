@@ -53,7 +53,7 @@ export const DislikesPage = () => {
         <NavFavoriteCat />
       </HeadWrap>
       <Wrap>
-        <CurrentPageNavigation />
+        <CurrentPageNavigation currentPage={'dislikes'} />
         {isLoading && <Loader />}
         {catImages && (
           <VotedGalleryList

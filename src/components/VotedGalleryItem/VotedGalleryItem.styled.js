@@ -87,9 +87,6 @@ export const ImgBtn = styled.button`
   :focus {
     background-color: ${p => p.theme.colors.activeBgBtn};
   }
-  :disabled {
-    background-color: black;
-  }
 `;
 
 export const BtnSvg = styled.svg`

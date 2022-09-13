@@ -65,7 +65,7 @@ export const BreedsPage = () => {
       </HeadWrap>
       <Wrap>
         <FlexWrap>
-          <CurrentPageNavigation />
+          <CurrentPageNavigation currentPage={'breeds'} />
           <BreedsForm changeForm={changeForm} setSort={setSort} />
         </FlexWrap>
         {loading && !breedId && <Loader />}

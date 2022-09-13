@@ -51,7 +51,7 @@ export const FavoritePage = () => {
         <NavFavoriteCat />
       </HeadWrap>
       <Wrap>
-        <CurrentPageNavigation />
+        <CurrentPageNavigation currentPage={'favorite'} />
         {isLoading && <Loader />}
         {images && (
           <VotedGalleryList

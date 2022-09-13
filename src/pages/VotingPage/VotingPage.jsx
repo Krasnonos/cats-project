@@ -14,7 +14,7 @@ export const VotingPage = () => {
         <NavFavoriteCat />
       </HeadWrap>
       <Wrap>
-        <CurrentPageNavigation />
+        <CurrentPageNavigation currentPage={'voting'} />
         <RandomCatForVote />
       </Wrap>
     </Section>

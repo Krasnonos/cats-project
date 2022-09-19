@@ -37,6 +37,14 @@ export const API = {
     return result.data;
   },
 
+  async getSearchedBreedCats(breedid, page) {
+    console.log(breedid, page);
+    const result = await axios(
+      `/v1/images/search?breed_id=abob&limit=5&page=0&api_key=${API_KEY}`
+    );
+    return result.data;
+  },
+
   async getVotedCats() {
     const result = await axios(`/v1/votes?&api_key=${API_KEY}`);
     return result.data;

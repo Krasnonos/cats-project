@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/cats-project/static/css/main.e17936c0.css",
-    "main.js": "/cats-project/static/js/main.c1358cc6.js",
+    "main.js": "/cats-project/static/js/main.50b8b117.js",
     "static/media/home.png": "/cats-project/static/media/home.b85610870b3300cbb88f.png",
     "static/media/icons.svg": "/cats-project/static/media/icons.40b1291aa6a21f655db3b30ba0ccb745.svg",
     "index.html": "/cats-project/index.html",
     "main.e17936c0.css.map": "/cats-project/static/css/main.e17936c0.css.map",
-    "main.c1358cc6.js.map": "/cats-project/static/js/main.c1358cc6.js.map"
+    "main.50b8b117.js.map": "/cats-project/static/js/main.50b8b117.js.map"
   },
   "entrypoints": [
     "static/css/main.e17936c0.css",
-    "static/js/main.c1358cc6.js"
+    "static/js/main.50b8b117.js"
   ]
 }

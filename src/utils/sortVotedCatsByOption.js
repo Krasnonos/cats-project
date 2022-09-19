@@ -1,5 +1,4 @@
-import { Api } from './apiService';
-const API = new Api();
+import { API } from './';
 
 export const sortVotedCats = async page => {
   let votingCats = null;

@@ -1,10 +1,8 @@
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
-import { VoteBtns } from '../VoteBtns/VoteBtns';
-import { Loader } from '../Loader/Loader';
-import { ActionHistoryList } from '../ActionHistoryList/ActionHistoryList';
+import { VoteBtns, Loader, ActionHistoryList } from '../';
 import { ImgWrap, VoteCatImg, RelativeWrap } from './RandomCatForVote.styled';
-import { API } from '../../utils/apiService';
+import { API } from '../../utils';
 
 export const RandomCatForVote = () => {
   const [actions, setActions] = useState([]);

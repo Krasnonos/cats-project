@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { API } from '../../utils/apiService';
+import { API, SortImg } from '../../utils';
 // import { getUniqImages } from '../../utils/getUniqImages';
-import { SortImg } from '../../utils/sortImages';
 import {
   HeaderInputAndNavigation,
   CurrentPageNavigation,

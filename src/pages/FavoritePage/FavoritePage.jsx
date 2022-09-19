@@ -7,7 +7,7 @@ import {
   ActionHistoryList,
   VotedGalleryList,
 } from '../../components';
-import { API } from '../../utils/apiService';
+import { API, addActionToHistory } from '../../utils';
 import { Section, Wrap, ErrorMsg } from './FavoritePage.styled';
 
 export const FavoritePage = () => {
@@ -29,18 +29,7 @@ export const FavoritePage = () => {
   });
 
   const removeImgFromFavorite = id => {
-    setActions(state => [
-      ...state,
-      {
-        id,
-        time: Date.now(),
-      },
-    ]);
-    try {
-      mutate(id);
-    } catch (error) {
-      console.log(error);
-    }
+    addActionToHistory(id, setActions, mutate);
   };
 
   return (

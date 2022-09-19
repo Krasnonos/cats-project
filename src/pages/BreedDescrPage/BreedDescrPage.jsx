@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 // import { useQuery } from '@tanstack/react-query';
-// import { API } from '../../utils/apiService';
+// import { API } from '../../utils';
 import {
   HeaderInputAndNavigation,
   CurrentPageNavigation,

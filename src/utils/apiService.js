@@ -1,6 +1,5 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://api.thecatapi.com';
-// const API_KEY = 'c938eb7b-ece3-4add-81ef-448f0cf47548';
 const API_KEY = '29fa3a0d-cc24-4807-8889-3bc49f02b0f7';
 
 export const API = {

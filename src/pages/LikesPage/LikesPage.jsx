@@ -7,7 +7,7 @@ import {
   ActionHistoryList,
   VotedGalleryList,
 } from '../../components';
-import { API } from '../../utils/apiService';
+import { API, addActionToHistory } from '../../utils';
 import { Section, Wrap, ErrorMsg } from './LikesPage.styled';
 
 export const LikesPage = () => {
@@ -30,19 +30,7 @@ export const LikesPage = () => {
   });
 
   const removeImgFromFavorite = id => {
-    setActions(state => [
-      ...state,
-      {
-        id,
-        vote: 0,
-        time: Date.now(),
-      },
-    ]);
-    try {
-      mutate(id);
-    } catch (error) {
-      console.log(error);
-    }
+    addActionToHistory(id, setActions, mutate);
   };
 
   return (

@@ -1,18 +1,14 @@
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
   RandomCatForVote,
 } from '../../components';
-import { Section, HeadWrap, Wrap } from './VotingPage.styled';
+import { Section, Wrap } from './VotingPage.styled';
 
 export const VotingPage = () => {
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'voting'} />
         <RandomCatForVote />

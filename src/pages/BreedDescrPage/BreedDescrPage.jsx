@@ -2,11 +2,10 @@ import { useParams } from 'react-router-dom';
 // import { useQuery } from '@tanstack/react-query';
 // import { API } from '../../utils/apiService';
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
 } from '../../components';
-import { Section, HeadWrap, Wrap } from './BreedDescrPage.styled';
+import { Section, Wrap } from './BreedDescrPage.styled';
 
 export const BreedDescrPage = () => {
   const { breedId } = useParams();
@@ -23,10 +22,7 @@ export const BreedDescrPage = () => {
 
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'breeds'} breedId={breedId} />
       </Wrap>

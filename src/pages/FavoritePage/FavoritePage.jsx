@@ -1,15 +1,14 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
   Loader,
   ActionHistoryList,
   VotedGalleryList,
 } from '../../components';
 import { API } from '../../utils/apiService';
-import { Section, HeadWrap, Wrap, ErrorMsg } from './FavoritePage.styled';
+import { Section, Wrap, ErrorMsg } from './FavoritePage.styled';
 
 export const FavoritePage = () => {
   const [actions, setActions] = useState([]);
@@ -46,10 +45,7 @@ export const FavoritePage = () => {
 
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'favorite'} />
         {isLoading && <Loader />}

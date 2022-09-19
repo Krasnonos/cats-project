@@ -1,15 +1,14 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
   Loader,
   ActionHistoryList,
   VotedGalleryList,
 } from '../../components';
 import { API } from '../../utils/apiService';
-import { Section, HeadWrap, Wrap, ErrorMsg } from './DislikesPage.styled';
+import { Section, Wrap, ErrorMsg } from './DislikesPage.styled';
 
 export const DislikesPage = () => {
   const [catImages, setCatImages] = useState(null);
@@ -48,10 +47,7 @@ export const DislikesPage = () => {
 
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'dislikes'} />
         {isLoading && <Loader />}

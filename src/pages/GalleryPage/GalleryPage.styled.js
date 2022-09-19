@@ -5,11 +5,6 @@ export const Section = styled.div`
   flex-direction: column;
 `;
 
-export const HeadWrap = styled.div`
-  display: flex;
-  margin-bottom: 10px;
-`;
-
 export const Wrap = styled.div`
   width: 100%;
   height: 770px;

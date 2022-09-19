@@ -9,6 +9,7 @@ export * from './CurrentPageNavigation/CurrentPageNavigation';
 export * from './RandomCatForVote/RandomCatForVote';
 export * from './ActionHistoryList/ActionHistoryList';
 export * from './ActionHistoryListItem/ActionHistoryListItem';
+export * from './HeaderInputAndNavigation/HeaderInputAndNavigation.jsx';
 export * from './VoteBtns/VoteBtns';
 export * from './Loader/Loader';
 export * from './BreedsForm/BreedsForm';

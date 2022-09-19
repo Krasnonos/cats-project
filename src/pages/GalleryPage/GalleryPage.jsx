@@ -1,17 +1,13 @@
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
 } from '../../components';
-import { Section, HeadWrap, Wrap } from './GalleryPage.styled';
+import { Section, Wrap } from './GalleryPage.styled';
 
 export const GalleryPage = () => {
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'gallery'} />
       </Wrap>

@@ -3,14 +3,13 @@ import { API } from '../../utils/apiService';
 // import { getUniqImages } from '../../utils/getUniqImages';
 import { SortImg } from '../../utils/sortImages';
 import {
-  SearchBreedsInput,
-  NavFavoriteCat,
+  HeaderInputAndNavigation,
   CurrentPageNavigation,
   BreedsForm,
   Gallery,
   Loader,
 } from '../../components';
-import { Section, HeadWrap, FlexWrap, Wrap } from './BreedsPage.styled';
+import { Section, FlexWrap, Wrap } from './BreedsPage.styled';
 
 export const BreedsPage = () => {
   const [breedId, setBreedId] = useState(null);
@@ -59,10 +58,7 @@ export const BreedsPage = () => {
 
   return (
     <Section>
-      <HeadWrap>
-        <SearchBreedsInput />
-        <NavFavoriteCat />
-      </HeadWrap>
+      <HeaderInputAndNavigation />
       <Wrap>
         <FlexWrap>
           <CurrentPageNavigation currentPage={'breeds'} />

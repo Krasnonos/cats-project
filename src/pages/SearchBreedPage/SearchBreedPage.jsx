@@ -18,17 +18,19 @@ import {
 
 export const SearchBreedPage = () => {
   const [page, setPage] = useState(0);
+  const [images, setImages] = useState([]);
   const { breedid, breedName } = useSelector(state => state.breed);
 
-  const {
-    data: images,
-    isFetching,
-    isPreviousData,
-  } = useQuery(
+  const { data, isFetching, isPreviousData } = useQuery(
     ['searchedCats', breedid, page],
     () => API.getSearchedBreedCats(breedid, page),
     {
       keepPreviousData: true,
+      onSuccess(res) {
+        console.log('images', images);
+        console.log('res', res);
+        setImages(state => [...res, ...state]);
+      },
     }
   );
 
@@ -40,7 +42,7 @@ export const SearchBreedPage = () => {
         <SearchedText>
           Serch resaults for: <BreedName>{breedName}</BreedName>
         </SearchedText>
-        {images && (
+        {images.length > 0 && (
           <InfiniteScroll
             dataLength={images.length} //This is important field to render the next data
             next={() => setPage(state => (state = state + 1))}

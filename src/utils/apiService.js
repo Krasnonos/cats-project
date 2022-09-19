@@ -38,10 +38,10 @@ export const API = {
   },
 
   async getSearchedBreedCats(breedid, page) {
-    console.log(breedid, page);
     const result = await axios(
-      `/v1/images/search?breed_id=abob&limit=5&page=0&api_key=${API_KEY}`
+      `/v1/images/search?breed_id=beng&limit=5&page=${page}&api_key=${API_KEY}`
     );
+    console.log(result);
     return result.data;
   },
 

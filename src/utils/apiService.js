@@ -30,9 +30,9 @@ export const API = {
     return result.data;
   },
 
-  async searchCatsByBreeds(breed) {
+  async searchCatsByBreeds({ queryKey }) {
     const result = await axios(
-      `/v1/images/search?breed_id=${breed}&limit=10&page=0&api_key=${API_KEY}`
+      `/v1/images/search?breed_id=${queryKey[1]}&limit=5&page=0&api_key=${API_KEY}`
     );
     return result.data;
   },

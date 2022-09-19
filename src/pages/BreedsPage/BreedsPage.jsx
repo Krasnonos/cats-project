@@ -52,7 +52,6 @@ export const BreedsPage = () => {
     const firstEl = listParent.querySelector('.FirstItem');
     firstEl.innerHTML = e.target.textContent;
   };
-
   const sortedCatImages = SortImg(images, sort);
 
   return (

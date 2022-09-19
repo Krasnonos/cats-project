@@ -1,5 +1,5 @@
-import { GelleryItem } from '../GridGalleryItem/GridGalleryItem';
-import { List } from './GridGallery.styled';
+import { GelleryItem } from '../GalleryItem/GalleryItem';
+import { List } from './Gallery.styled';
 
 export const Gallery = ({ images }) => {
   return (

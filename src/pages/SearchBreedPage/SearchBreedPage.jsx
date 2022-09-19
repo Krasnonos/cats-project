@@ -6,7 +6,7 @@ import {
   HeaderInputAndNavigation,
   CurrentPageNavigation,
   Gallery,
-  // Loader,
+  Loader,
 } from '../../components';
 import { API } from '../../utils';
 import {
@@ -19,17 +19,15 @@ import {
 export const SearchBreedPage = () => {
   const [page, setPage] = useState(0);
   const [images, setImages] = useState([]);
-  const { breedid, breedName } = useSelector(state => state.breed);
+  const { breedId, breedName } = useSelector(state => state.breed);
 
   const { data, isFetching, isPreviousData } = useQuery(
-    ['searchedCats', breedid, page],
-    () => API.getSearchedBreedCats(breedid, page),
+    ['searchedCats', breedId, page],
+    () => API.getSearchedBreedCats(breedId, page),
     {
       keepPreviousData: true,
       onSuccess(res) {
-        console.log('images', images);
-        console.log('res', res);
-        setImages(state => [...res, ...state]);
+        setImages(state => [...state, ...res]);
       },
     }
   );
@@ -47,7 +45,7 @@ export const SearchBreedPage = () => {
             dataLength={images.length} //This is important field to render the next data
             next={() => setPage(state => (state = state + 1))}
             hasMore={true}
-            loader={<h4>Loading...</h4>}
+            loader={<Loader />}
             endMessage={
               <p style={{ textAlign: 'center' }}>
                 <b>Yay! You have seen it all</b>

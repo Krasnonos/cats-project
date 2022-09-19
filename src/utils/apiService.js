@@ -37,11 +37,10 @@ export const API = {
     return result.data;
   },
 
-  async getSearchedBreedCats(breedid, page) {
+  async getSearchedBreedCats(breedId, page) {
     const result = await axios(
-      `/v1/images/search?breed_id=beng&limit=5&page=${page}&api_key=${API_KEY}`
+      `/v1/images/search?breed_id=${breedId}&limit=5&page=${page}&api_key=${API_KEY}`
     );
-    console.log(result);
     return result.data;
   },
 

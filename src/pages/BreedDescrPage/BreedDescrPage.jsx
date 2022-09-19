@@ -5,6 +5,7 @@ import {
   HeaderInputAndNavigation,
   CurrentPageNavigation,
   BreedFullDescr,
+  Loader,
 } from '../../components';
 import { Section, Wrap } from './BreedDescrPage.styled';
 
@@ -24,6 +25,7 @@ export const BreedDescrPage = () => {
       <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'breeds'} breedId={breedId} />
+        {isLoading && <Loader />}
         {images && <BreedFullDescr catsInfo={images} />}
       </Wrap>
     </Section>

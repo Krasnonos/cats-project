@@ -29,7 +29,12 @@ export const FavoritePage = () => {
   });
 
   const removeImgFromFavorite = id => {
-    addActionToHistory(id, setActions, mutate);
+    addActionToHistory(id, setActions);
+    try {
+      mutate(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

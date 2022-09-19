@@ -1,4 +1,4 @@
-export const addActionToHistory = (id, setActions, mutate) => {
+export const addActionToHistory = (id, setActions) => {
   setActions(state => [
     ...state,
     {
@@ -7,9 +7,4 @@ export const addActionToHistory = (id, setActions, mutate) => {
       time: Date.now(),
     },
   ]);
-  try {
-    mutate(id);
-  } catch (error) {
-    console.log(error);
-  }
 };

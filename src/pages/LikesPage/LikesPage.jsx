@@ -11,17 +11,16 @@ import { API, addActionToHistory } from '../../utils';
 import { Section, Wrap, ErrorMsg } from './LikesPage.styled';
 
 export const LikesPage = () => {
-  const [catImages, setCatImages] = useState(null);
   const [actions, setActions] = useState([]);
   const queryClient = useQueryClient();
 
-  const { isLoading } = useQuery(['likesCats'], API.getVotedCats, {
-    refetchOnWindowFocus: false,
-    onSuccess: res => {
-      const response = res.filter(({ value }) => value === 0);
-      setCatImages(response);
-    },
-  });
+  const { isLoading, data: images } = useQuery(
+    ['likesCats'],
+    API.getVotedCats,
+    {
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const { isLoading: isDeliting, mutate } = useMutation(API.delateVotes, {
     onSuccess: () => {
@@ -30,8 +29,15 @@ export const LikesPage = () => {
   });
 
   const removeImgFromFavorite = id => {
-    addActionToHistory(id, setActions, mutate);
+    addActionToHistory(id, setActions);
+    try {
+      mutate(id);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  const sortedImages = images?.filter(({ value }) => value === 1);
 
   return (
     <Section>
@@ -39,14 +45,14 @@ export const LikesPage = () => {
       <Wrap>
         <CurrentPageNavigation currentPage={'likes'} />
         {isLoading && <Loader />}
-        {catImages && (
+        {sortedImages && (
           <VotedGalleryList
-            cats={catImages}
+            cats={sortedImages}
             action={removeImgFromFavorite}
             isDeliting={isDeliting}
           />
         )}
-        {catImages?.length === 0 && <ErrorMsg>No item found</ErrorMsg>}
+        {sortedImages?.length === 0 && <ErrorMsg>No item found</ErrorMsg>}
         {actions && <ActionHistoryList actions={actions} remove={true} />}
       </Wrap>
     </Section>

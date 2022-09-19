@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useGetBreedsList } from '../../hooks/useGetBreedsList';
+import { changeBreed } from '../../redux/breedSlice';
 import svg from '../../image/icons.svg';
 import { FormWrap, SearchInput, SubmitBtn } from './SearchBreedsInput.styled';
 
 export const SearchBreedsInput = () => {
   const [queryStr, setQueryStr] = useState('');
-  const navigate = useNavigate();
   const breeds = useGetBreedsList();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -17,7 +20,8 @@ export const SearchBreedsInput = () => {
       return normalizedName.includes(normalizedQueryStr);
     });
     if (url) {
-      navigate(`/${url.name.toLowerCase()}`);
+      dispatch(changeBreed({ breedName: url.name, breedId: url.id }));
+      navigate('/search');
     }
   };
 

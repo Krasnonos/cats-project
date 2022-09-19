@@ -10,6 +10,7 @@ import { FavoritePage } from '../pages/FavoritePage/FavoritePage';
 import { LikesPage } from '../pages/LikesPage/LikesPage';
 import { DislikesPage } from '../pages/DislikesPage/DislikesPage';
 import { BreedDescrPage } from '../pages/BreedDescrPage/BreedDescrPage';
+import { SearchBreedPage } from '../pages/SearchBreedPage/SearchBreedPage';
 import { HomeHeroBlock } from '../components/HomeHeroBlock/HomeHeroBlock';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
           <Route path={'likes'} element={<LikesPage />} />
           <Route path={'dislikes'} element={<DislikesPage />} />
           <Route path={'favorites'} element={<FavoritePage />} />
+          <Route path={'search'} element={<SearchBreedPage />} />
+          <Route path={'search/:breedId'} element={<BreedDescrPage />} />
         </Route>
       </Routes>
     </ThemeProvider>

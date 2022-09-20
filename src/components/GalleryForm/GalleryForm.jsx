@@ -1,5 +1,5 @@
 import svg from '../../image/icons.svg';
-// import { API } from '../../utils';
+import { useState } from 'react';
 import { useGetBreedsList } from '../../hooks/useGetBreedsList';
 
 import {
@@ -15,8 +15,36 @@ import {
   BtnSvg,
 } from './GalleryForm.styled';
 
-export const GalleryForm = ({ changeForm, onSubmit }) => {
+export const GalleryForm = ({ onSubmit }) => {
+  const [breedId, setBreedId] = useState(null);
+  const [limit, setLimit] = useState('5');
+  const [order, setOrder] = useState('rand');
+  const [type, setType] = useState('jpg,png');
   const breeds = useGetBreedsList();
+
+  const changeForm = e => {
+    const { name, value } = e.currentTarget;
+    switch (name) {
+      case 'breedId':
+        setBreedId(value);
+        break;
+      case 'limit':
+        setLimit(value);
+        break;
+      case 'order':
+        setOrder(value);
+        break;
+      case 'type':
+        setType(value);
+        break;
+      default:
+        break;
+    }
+
+    const listParent = e.currentTarget.closest('.listPerent');
+    const firstEl = listParent.querySelector('.FirstItem');
+    firstEl.innerHTML = e.target.textContent;
+  };
 
   const getBreedsHtml = (id, name) => {
     return (
@@ -188,7 +216,10 @@ export const GalleryForm = ({ changeForm, onSubmit }) => {
         </LimitMenu>
       </MenuFlexWrap>
 
-      <SubmitBtn type="button" onClick={onSubmit}>
+      <SubmitBtn
+        type="button"
+        onClick={() => onSubmit(breedId, limit, order, type)}
+      >
         <BtnSvg width="17" height="20">
           <use href={`${svg}#icon-update`}></use>
         </BtnSvg>

@@ -10,14 +10,10 @@ import {
 import { Section, Wrap } from './GalleryPage.styled';
 
 export const GalleryPage = () => {
-  const [breedId, setBreedId] = useState(null);
-  const [limit, setLimit] = useState('5');
-  const [order, setOrder] = useState('rand');
-  const [type, setType] = useState('jpg,png');
   const [images, setimages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async () => {
+  const onSubmit = async (breedId, limit, order, type) => {
     if (!breedId) {
       return;
     }
@@ -29,30 +25,6 @@ export const GalleryPage = () => {
       console.log(error);
     }
     setLoading(false);
-  };
-
-  const changeForm = e => {
-    const { name, value } = e.currentTarget;
-    switch (name) {
-      case 'breedId':
-        setBreedId(value);
-        break;
-      case 'limit':
-        setLimit(value);
-        break;
-      case 'order':
-        setOrder(value);
-        break;
-      case 'type':
-        setType(value);
-        break;
-      default:
-        break;
-    }
-
-    const listParent = e.currentTarget.closest('.listPerent');
-    const firstEl = listParent.querySelector('.FirstItem');
-    firstEl.innerHTML = e.target.textContent;
   };
 
   const addOrRemoveImg = async id => {
@@ -75,7 +47,7 @@ export const GalleryPage = () => {
       <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'gallery'} />
-        <GalleryForm changeForm={changeForm} onSubmit={onSubmit} />
+        <GalleryForm onSubmit={onSubmit} />
         {loading && images.length === 0 && <Loader />}
         <VotedGalleryList
           cats={images}

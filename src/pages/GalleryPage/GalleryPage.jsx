@@ -55,8 +55,19 @@ export const GalleryPage = () => {
     firstEl.innerHTML = e.target.textContent;
   };
 
-  const addOrRemoveImg = id => {
-    console.log(id);
+  const addOrRemoveImg = async id => {
+    try {
+      const favoriteCats = await API.getFavoritesCats();
+      const isFavorite = favoriteCats.find(({ image_id }) => image_id === id);
+
+      if (isFavorite) {
+        API.delateFavorite(isFavorite.id);
+      } else {
+        API.addCatToFavorite({ image_id: id });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

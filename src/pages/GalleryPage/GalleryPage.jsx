@@ -6,12 +6,14 @@ import {
   GalleryForm,
   Loader,
   VotedGalleryList,
+  Modal,
 } from '../../components';
 import { Section, Wrap } from './GalleryPage.styled';
 
 export const GalleryPage = () => {
   const [images, setimages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const onSubmit = async (breedId, limit, order, type) => {
     if (!breedId) {
@@ -46,7 +48,10 @@ export const GalleryPage = () => {
     <Section>
       <HeaderInputAndNavigation />
       <Wrap>
-        <CurrentPageNavigation currentPage={'gallery'} />
+        <CurrentPageNavigation
+          currentPage={'gallery'}
+          setIsOpenModal={setIsOpenModal}
+        />
         <GalleryForm onSubmit={onSubmit} />
         {loading && images.length === 0 && <Loader />}
         <VotedGalleryList
@@ -55,6 +60,7 @@ export const GalleryPage = () => {
           ifForGallaryPage
         />
       </Wrap>
+      {isOpenModal && <Modal setIsOpenModal={setIsOpenModal} />}
     </Section>
   );
 };

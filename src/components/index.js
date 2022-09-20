@@ -20,3 +20,4 @@ export * from './VotedGalleryList/VotedGalleryList';
 export * from './CatsTextDescr/CatsTextDescr';
 export * from './BreedFullDescr/BreedFullDescr';
 export * from './GalleryForm/GalleryForm';
+export * from './Modal/Modal';

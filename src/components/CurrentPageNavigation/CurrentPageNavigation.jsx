@@ -8,7 +8,11 @@ import {
   UploadSvg,
 } from './CurrentPageNavigation.styled';
 
-export const CurrentPageNavigation = ({ breedId, currentPage }) => {
+export const CurrentPageNavigation = ({
+  breedId,
+  currentPage,
+  setIsOpenModal,
+}) => {
   return (
     <FlexContainer>
       <Button type="button">
@@ -19,7 +23,7 @@ export const CurrentPageNavigation = ({ breedId, currentPage }) => {
       <TextCurrentPage isMuted={breedId}>{currentPage}</TextCurrentPage>
       {breedId && <BreedId>{breedId}</BreedId>}
       {currentPage === 'gallery' && (
-        <UploadBtn type="button">
+        <UploadBtn type="button" onClick={() => setIsOpenModal(true)}>
           <UploadSvg width="20" height="20">
             <use href={svg + '#icon-upload'}></use>
           </UploadSvg>

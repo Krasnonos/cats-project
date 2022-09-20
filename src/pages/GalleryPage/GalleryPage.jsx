@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { API } from '../../utils';
 import {
   HeaderInputAndNavigation,
   CurrentPageNavigation,
   GalleryForm,
-  // VotedGalleryList,
+  Loader,
+  VotedGalleryList,
 } from '../../components';
 import { Section, Wrap } from './GalleryPage.styled';
 
@@ -12,12 +14,21 @@ export const GalleryPage = () => {
   const [limit, setLimit] = useState('5');
   const [order, setOrder] = useState('rand');
   const [type, setType] = useState('jpg,png');
+  const [images, setimages] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     if (!breedId) {
       return;
     }
-    console.log(breedId, limit, order, type);
+    setLoading(true);
+    try {
+      const res = await API.getCatsForGallery(order, type, breedId, limit);
+      setimages(state => (state = [...state, ...res]));
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   };
 
   const changeForm = e => {
@@ -44,13 +55,22 @@ export const GalleryPage = () => {
     firstEl.innerHTML = e.target.textContent;
   };
 
+  const addOrRemoveImg = id => {
+    console.log(id);
+  };
+
   return (
     <Section>
       <HeaderInputAndNavigation />
       <Wrap>
         <CurrentPageNavigation currentPage={'gallery'} />
         <GalleryForm changeForm={changeForm} onSubmit={onSubmit} />
-        {/* <VotedGalleryList cats={images}/> */}
+        {loading && images.length === 0 && <Loader />}
+        <VotedGalleryList
+          cats={images}
+          action={addOrRemoveImg}
+          ifForGallaryPage
+        />
       </Wrap>
     </Section>
   );

@@ -7,10 +7,17 @@ import {
   BtnSvg,
 } from './VotedGalleryItem.styled';
 
-export const VotedGalleryItem = ({ cat, action, isDeliting }) => {
+export const VotedGalleryItem = ({
+  cat,
+  action,
+  isDeliting,
+  ifForGallaryPage,
+}) => {
+  const imgSrc = ifForGallaryPage ? cat.url : cat.image?.url;
+
   return (
     <Item>
-      <CardImg src={cat.image?.url} alt={cat?.id} />
+      <CardImg src={imgSrc} alt={cat?.id} />
       <BtnOverlay>
         <ImgBtn
           type="button "

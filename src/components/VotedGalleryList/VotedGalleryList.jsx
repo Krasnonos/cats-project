@@ -1,7 +1,12 @@
 import { VotedGalleryItem } from '../';
 import { List } from './VotedGalleryList.styled';
 
-export const VotedGalleryList = ({ cats, action, isDeliting }) => {
+export const VotedGalleryList = ({
+  cats,
+  action,
+  isDeliting,
+  ifForGallaryPage = false,
+}) => {
   return (
     <List>
       {cats.map(cat => (
@@ -10,6 +15,7 @@ export const VotedGalleryList = ({ cats, action, isDeliting }) => {
           key={cat.id}
           action={action}
           isDeliting={isDeliting}
+          ifForGallaryPage={ifForGallaryPage}
         />
       ))}
     </List>

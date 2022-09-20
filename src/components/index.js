@@ -19,3 +19,4 @@ export * from './VotedGalleryItem/VotedGalleryItem';
 export * from './VotedGalleryList/VotedGalleryList';
 export * from './CatsTextDescr/CatsTextDescr';
 export * from './BreedFullDescr/BreedFullDescr';
+export * from './GalleryForm/GalleryForm';
